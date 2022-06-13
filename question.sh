@@ -41,3 +41,13 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/g' data.csv > data_tmp1.csv
+sed 's/,/./' data_tmp1.csv > data_tmp2.csv
+sed 's/;;/;\\N;/' data_tmp2.csv > data_tmp3.csv
+sed 's/n/N/' data_tmp3.csv > data_tmp4.csv
+sed 's/;N/;\\N/' data_tmp4.csv > data_tmp5.csv
+sed 's/\(.$\)/:/' data_tmp5.csv > data_tmp6.csv
+sed 's/;:/;\\N/' data_tmp6.csv > data_tmp7.csv
+sed 's/://' data_tmp7.csv > data_tmp8.csv
+sed 's/;/,/' data_tmp8.csv > output.csv
+rm data_tmp*.csv
