@@ -23,6 +23,9 @@ if os.system("bash question.sh data.csv > output.csv") != 0:
 with open("output.csv", "r", encoding="utf8") as f:
     lines = f.readlines()
 
+print(os.system("cat output.csv"))    
+print("**************")
+
 if len(lines) != len(expected):
     raise Exception("Wrong number of lines")
 
